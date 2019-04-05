@@ -10,8 +10,10 @@ module Voom
           def initialize(**attribs_, &block)
             super(type: :chart, **attribs_, &block)
             @chart_options = {}
-            %i(data color size grid regions legend tooltip padding transition point pie).each do |setting|
-              @chart_options.merge!(setting=>attribs.delete(setting){{}})
+            %i(line spline step area area-spline area-step bar scatter pie donut gauge
+               data axis color size grid regions legend tooltip padding transition point).each do |setting|
+              value = attribs.delete(setting)
+              @chart_options.merge!(setting=>value) if value
             end
             expand!
           end
