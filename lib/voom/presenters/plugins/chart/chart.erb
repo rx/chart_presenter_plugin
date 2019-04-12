@@ -1,3 +1,3 @@
-<div id="<%= comp.id %>" class="v-plugin v-chart <%= 'v-actionable' if comp.events %>" data-plugin-callback='Chart' data-chart-options=<%=comp.chart_options.to_json%>
+<div id="<%= comp.id %>" class="v-plugin v-chart <%= 'v-actionable' if comp.events %>" data-plugin-callback='Chart' data-chart-options=<%=expand_hash(comp.chart_options).to_json%>
   <%= erb :"components/event", :locals => {comp: comp, events: comp.events, parent_id: comp.event_parent_id} %>>
 </div>
