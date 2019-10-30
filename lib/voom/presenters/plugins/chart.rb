@@ -1,4 +1,4 @@
-require_relative './chart/component'
+load File.expand_path('./chart/component.rb', __dir__)
 
 module Voom
   module Presenters
